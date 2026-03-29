@@ -1,10 +1,10 @@
 # DevOps Git Configuration and CI/CD
 
 # Azure Data Engineering: In-Depth CI/CD & DevOps
-This repository documents my technical deep-dive into Session 12 of the Azure Data Engineer training, focusing on automating data pipelines using Git and Azure DevOps.
+This repository documents my technical deep-dive into automating data pipelines using Git and Azure DevOps.
 
 ## 🚀 Key Learning Objectives
-In this session, I mastered the transition from manual deployments to a professional automated CI/CD lifecycle within **Azure Data Factory (ADF)**.
+I Understand the transition from manual deployments to a professional automated CI/CD lifecycle within **Azure Data Factory (ADF)**.
 
 ### 1. Git Integration & Version Control
 *   **Source Control:** Configured ADF to sync with Azure DevOps Git/GitHub.
@@ -31,6 +31,3 @@ In this session, I mastered the transition from manual deployments to a professi
 *   **Platform:** Azure DevOps
 *   **Version Control:** Git
 *   **Infrastructure:** ARM Templates
-
----
-*Notes based on Session 12 of the Azurelib Academy Data Engineer Course.*
