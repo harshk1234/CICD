@@ -32,33 +32,33 @@ I Understand the transition from manual deployments to a professional automated 
 *   **Version Control:** Git
 *   **Infrastructure:** ARM Templates
 
-Step 1: Feature Development & Local Testing
+###  Step 1: Feature Development & Local Testing
 The process begins with an individual developer working in a dedicated environment.
 
-Action: Create a new Feature Branch (e.g., feature/login-pipeline) from the collaboration branch (usually main).
+*  Action: Create a new Feature Branch (e.g., feature/login-pipeline) from the collaboration branch (usually main).
 Task: Develop your pipelines, datasets, and linked services.
 Validation: Use the Debug button in ADF to test the pipeline logic without affecting the production data.
-Step 2: Pull Request (PR) & Code Review
+###  Step 2: Pull Request (PR) & Code Review
 Once development is complete, the code must be merged into the shared repository.
 
-Action: Create a Pull Request in Azure DevOps from your feature branch to the main branch.
-Review: A lead developer or peer reviews the JSON code changes for best practices and naming conventions.
-Merge: Once approved, the feature branch is merged into main.
-Step 3: Generating ARM Templates (The "Publish" Phase)
+*  Action: Create a Pull Request in Azure DevOps from your feature branch to the main branch.
+*  Review: A lead developer or peer reviews the JSON code changes for best practices and naming conventions.
+*  Merge: Once approved, the feature branch is merged into main.
+###  Step 3: Generating ARM Templates (The "Publish" Phase)
 This is a unique step specific to Azure Data Factory that bridges the gap between Git and Deployment.
 
-Action: Switch to the main branch in the ADF portal and click the Publish button.
-Result: ADF internally validates the code and generates ARM (Azure Resource Manager) Templates.
-Storage: These templates (JSON files) are automatically saved into a hidden system branch called adf_publish.
-Step 4: Configuring the Release Pipeline
+*  Action: Switch to the main branch in the ADF portal and click the Publish button.
+*  Result: ADF internally validates the code and generates ARM (Azure Resource Manager) Templates.
+*  Storage: These templates (JSON files) are automatically saved into a hidden system branch called adf_publish.
+### Step 4: Configuring the Release Pipeline
 In Azure DevOps, you set up the automation "engine" that moves the code.
 
-Artifact Source: Point the Release Pipeline to the adf_publish branch of your repository.
-Trigger: Enable Continuous Deployment Trigger so the pipeline starts automatically whenever a new "Publish" occurs.
-Stages: Define your environments (e.g., Dev, UAT, Production).
-Step 5: Environment Parameterization & Deployment
+*  Artifact Source: Point the Release Pipeline to the adf_publish branch of your repository.
+*  Trigger: Enable Continuous Deployment Trigger so the pipeline starts automatically whenever a new "Publish" occurs.
+*  Stages: Define your environments (e.g., Dev, UAT, Production).
+### Step 5: Environment Parameterization & Deployment
 The final step ensures the pipeline connects to the right data sources in each environment.
 
-Action: Use the ARM Template Deployment task in the Release Pipeline.
-Override Parameters: This is the most critical part. You must provide the specific Connection Strings, Secret Keys, or Folder Paths for the target environment (e.g., swapping a dev-blob-storage link for prod-blob-storage).
-Execution: Run the release. The pipeline will deploy the exact logic from your Dev environment into the Production ADF instance.
+*  Action: Use the ARM Template Deployment task in the Release Pipeline.
+*  Override Parameters: This is the most critical part. You must provide the specific Connection Strings, Secret Keys, or Folder Paths for the target environment (e.g., swapping a dev-blob-storage link for prod-blob-storage).
+*  Execution: Run the release. The pipeline will deploy the exact logic from your Dev environment into the Production ADF instance.
