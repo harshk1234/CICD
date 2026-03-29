@@ -36,8 +36,8 @@ I Understand the transition from manual deployments to a professional automated 
 The process begins with an individual developer working in a dedicated environment.
 
 *  Action: Create a new Feature Branch (e.g., feature/login-pipeline) from the collaboration branch (usually main).
-Task: Develop your pipelines, datasets, and linked services.
-Validation: Use the Debug button in ADF to test the pipeline logic without affecting the production data.
+*  Task: Develop your pipelines, datasets, and linked services.
+*  Validation: Use the Debug button in ADF to test the pipeline logic without affecting the production data.
 ###  Step 2: Pull Request (PR) & Code Review
 Once development is complete, the code must be merged into the shared repository.
 
